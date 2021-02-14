@@ -1,0 +1,20 @@
+<h3>Messages</h3>
+
+<ul class="message-list">
+    <li *ngFor="let message of getMessages()">
+        <span>{{ message.id }}</span>
+        <span>{{ message.text }}</span>
+        <button class="button" type="button" (click)="startEditMessage(message.id)">Edit</button>
+        <button class="button" type="button" (click)="deleteMessage(message.id)">X</button>
+    </li>
+</ul>
+
+<form [formGroup]="messageForm" (ngSubmit)="sendMessage()">
+    <div>
+        <label for="message">
+            <input id="message" type="text" formControlName="text">
+        </label>
+    </div>
+
+    <button class="button" type="submit">Send</button>
+</form>
