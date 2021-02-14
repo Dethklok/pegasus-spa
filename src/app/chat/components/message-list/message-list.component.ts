@@ -52,6 +52,7 @@ export class MessageListComponent implements OnInit {
     observable.subscribe(message => {
       this.addMessage(message);
       this.messageForm.reset();
+      this.editingMessageId = null;
     });
   }
 
